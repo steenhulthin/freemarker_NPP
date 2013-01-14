@@ -110,3 +110,235 @@ Primary content continued
 </#if>
 
 
+<!--escape-->
+<#escape x as x?html>
+  First name: ${firstName}
+  Last name: ${lastName}
+  Maiden name: ${maidenName}
+</#escape>
+
+  First name: ${firstName?html}
+  Last name: ${lastName?html}
+  Maiden name: ${maidenName?html}
+
+<#assign x = "<test>">
+<#macro m1>
+  m1: ${x}
+</#macro>
+<#escape x as x?html>
+  <#macro m2>m2: ${x}</#macro>
+  ${x}
+  <@m1/>
+</#escape>
+${x}
+<@m2/>
+
+<#escape x as x?html>
+  From: ${mailMessage.From}
+  Subject: ${mailMessage.Subject}
+  <#noescape>Message: ${mailMessage.htmlFormattedBody}</#noescape>
+</#escape>
+
+From: ${mailMessage.From?html}
+  Subject: ${mailMessage.Subject?html}
+  Message: ${mailMessage.htmlFormattedBody}
+
+	
+
+<#escape x as x?html>
+  Customer Name: ${customerName}
+  Items to ship:
+  <#escape x as itemCodeToNameMap[x]>
+    ${itemCode1}
+    ${itemCode2}
+    ${itemCode3}
+    ${itemCode4}
+  </#escape>
+</#escape>  
+
+	
+	
+
+  Customer Name: ${customerName?html}
+  Items to ship:
+    ${itemCodeToNameMap[itemCode1]?html}
+    ${itemCodeToNameMap[itemCode2]?html}
+    ${itemCodeToNameMap[itemCode3]?html}
+    ${itemCodeToNameMap[itemCode4]?html}  
+
+
+<!--visit, recurse, fallback-->
+<#-- Assume that nodeWithNameX?node_name is "x" -->
+<#visit nodeWithNameX>
+Done.
+<#macro x>
+   Now I'm handling a node that has the name "x".
+   Just to show how to access this node: this node has ${.node?children?size} children.
+</#macro>  
+
+<#import "n1.ftl" as n1>
+<#import "n2.ftl" as n2>
+
+<#-- This will call n2.x (because there is no n1.x): -->
+<#visit nodeWithNameX using [n1, n2]>
+
+<#-- This will call the x of the current namespace: -->
+<#visit nodeWithNameX>
+
+<#macro x>
+  Simply x
+</#macro>  
+
+<#macro y>
+  n1.y
+</#macro>
+
+<#macro x>
+  n2.x
+  <#-- This will call n1.y, becuase it inherits the "using [n1, n2]" from the pending visit call: -->
+  <#visit nodeWithNameY>
+  <#-- This will call n2.y: -->
+  <#visit nodeWithNameY using .namespace>
+</#macro>
+
+<#macro y>
+  n2.y
+</#macro>
+
+<#-- Assume that nodeWithNameX?node_name is "x" -->
+<#visit nodeWithNameX>
+
+<#-- Assume that nodeWithNameY?node_type is "foo" -->
+<#visit nodeWithNameY>
+
+<#macro x>
+Handling node x
+</#macro>
+
+<#macro @foo>
+There was no specific handler for node ${node?node_name}
+</#macro>  
+
+<#recurse someNode using someLib>
+
+<#list someNode?children as child><#visit child using someLib></#list>
+
+<#list .node?children as child><#visit child></#list> 
+
+	
+
+<#import "/lib/docbook.ftl" as docbook>
+
+<#--
+  We use the docbook library, but we override some handlers
+  in this namespace.
+-->
+<#visit document using [.namespace, docbook]>
+
+<#--
+  Override the "programlisting" handler, but only in the case if
+  its "role" attribute is "java"
+-->
+<#macro programlisting>
+  <#if .node.@role[0]!"" == "java">
+    <#-- Do something special here... -->
+    ...
+  <#else>
+    <#-- Just use the original (overidden) handler -->
+    <#fallback>
+  </#if>
+</#macro>
+
+<!--function, return-->
+<#function avg x y>
+  <#return (x + y) / 2>
+</#function>
+${avg(10, 20)}
+
+<#function avg nums...>
+  <#local sum = 0>
+  <#list nums as num>
+    <#local sum = sum + num>
+  </#list>
+  <#if nums?size != 0>
+    <#return sum / nums?size>
+  </#if>
+</#function>
+${avg(10, 20)}
+${avg(10, 20, 30, 40)}
+${avg()!"N/A"}
+
+
+<!--flush-->
+<#flush>
+
+
+<!--ftl-->
+<#ftl param1=value1 param2=value2 ... paramN=valueN>
+
+
+<!--global-->
+<#global name=value>
+
+<#global name1=value1 name2=value2 ... nameN=valueN>
+
+<#global name>
+  capture this
+</#global>
+
+
+<!--import-->
+<#import "/libs/mylib.ftl" as my>
+
+<@my.copyright date="1999-2002"/>  
+
+
+<!--include-->
+<#assign me = "Juila Smith">
+<h1>Some test</h1>
+<p>Yeah.
+<hr>
+<#include "/common/copyright.ftl">  
+
+<#include "/common/navbar.html" parse=false encoding="Shift_JIS">  
+
+<#include "*/footer.ftl">
+
+
+<!--list-->
+<#assign seq = ["winter", "spring", "summer", "autumn"]>
+<#list seq as x>
+  ${x_index + 1}. ${x}<#if x_has_next>,</#if>
+</#list>
+
+<#assign x=3>
+<#list 1..x as i>
+  ${i}
+</#list>  
+
+<#list seq as x>
+  ${x}
+  <#if x = "spring"><#break></#if>
+</#list>  
+
+
+<!--local-->
+<#local name=value>
+
+<#local name1=value1 name2=value2 nameN=valueN>
+
+<#local name>
+  capture this
+</#local>
+
+
+<!--t, lt, rt, nt-->
+<#t>
+
+<#lt>
+
+<#rt>
+
+<#nt>
+
+
