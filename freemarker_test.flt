@@ -1,0 +1,112 @@
+<!--assign-->
+<#assign seasons = ["winter", "spring", "summer", "autumn"]>
+<#assign test = test + 1>  
+<#assign
+  seasons = ["winter", "spring", "summer", "autumn"]
+  test = test + 1
+>
+<#import "/mylib.ftl" as my>
+<#assign bgColor="red" in my>  
+<#macro myMacro>foo</#macro>
+<#assign x>
+  <#list 1..3 as n>
+    ${n} <@myMacro />
+  </#list>
+</#assign>
+Number of words: ${x?word_list?size}
+${x}
+<#assign x>Hello ${user}!</#assign> <#-- BAD PRACTICE! -->
+<#assign x="Hello ${user}!">
+
+<!--attempt-->
+Primary content
+<#attempt>
+  Optional content: ${thisMayFails}
+<#recover>
+  Ops! The optional content is not available.
+</#attempt>
+Primary content continued
+
+<!--switch, case and default-->
+<#switch being.size>
+  <#case "small">
+     This will be processed if it is small
+     <#break>
+  <#case "medium">
+     This will be processed if it is medium
+     <#break>
+  <#case "large">
+     This will be processed if it is large
+     <#break>
+  <#default>
+     This will be processed if it is neither
+</#switch>
+
+<#switch x>
+  <#case x = 1>
+    1
+  <#case x = 2>
+    2
+  <#default>
+    d
+</#switch>
+
+
+<!--compress-->
+<#assign x = "    moo  \n\n   ">
+(<#compress>
+  1 2  3   4    5
+  ${moo}
+  test only
+
+  I said, test only
+
+</#compress>)
+
+
+<!--if, elseif and  else--->
+<#if x == 1>
+  x is 1
+</#if>  
+
+<#if x == 1>
+  x is 1
+<#else>
+  x is not 1
+</#if>  
+
+<#if x == 1>
+  x is 1
+<#elseif x == 2>
+  x is 2
+<#elseif x == 3>
+  x is 3
+</#if>  
+
+<#if x == 1>
+  x is 1
+<#elseif x == 2>
+  x is 2
+<#elseif x == 3>
+  x is 3
+<#elseif x == 4>
+  x is 4
+<#else>
+  x is not 1 nor 2 nor 3 nor 4
+</#if>  
+
+<#if x == 1>
+  x is 1
+  <#if y == 1>
+    and y is 1 too
+  <#else>
+    but y is not
+  </#if>
+<#else>
+  x is not 1
+  <#if y < 0>
+    and y is less than 0
+  </#if>
+</#if>
+
+
