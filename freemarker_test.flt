@@ -342,3 +342,86 @@ ${avg()!"N/A"}
 <#nt>
 
 
+<!--macro, nested, return-->
+<#-- call the macro; the macro variable is already created: -->
+<@test/>
+<#-- create the macro variable: -->
+<#macro test>
+  Test text
+</#macro>  
+
+<#macro test>
+  Test text
+</#macro>
+<#-- call the macro: -->
+<@test/>  
+
+	
+
+<#macro test foo bar baaz>
+  Test text, and the params: ${foo}, ${bar}, ${baaz}
+</#macro>
+<#-- call the macro: -->
+<@test foo="a" bar="b" baaz=5*5-2/>
+
+	
+
+<#macro test foo bar="Bar" baaz=-1>
+  Test text, and the params: ${foo}, ${bar}, ${baaz}
+</#macro>
+<@test foo="a" bar="b" baaz=5*5-2/>
+<@test foo="a" bar="b"/>
+<@test foo="a" baaz=5*5-2/>
+<@test foo="a"/>
+
+<#macro list title items>
+  <p>${title?cap_first}:
+  <ul>
+    <#list items as x>
+      <li>${x?cap_first}
+    </#list>
+  </ul>
+</#macro>
+<@list items=["mouse", "elephant", "python"] title="Animals"/>
+
+<#macro img src extra...>
+  <img src="/context${src?html}" 
+  <#list extra?keys as attr>
+    ${attr}="${extra[attr]?html}"
+  </#list>
+  >
+</#macro>
+<@img src="/images/test.png" width=100 height=50 alt="Test"/>
+
+<#macro do_twice>
+  1. <#nested>
+  2. <#nested>
+</#macro>
+<@do_twice>something</@do_twice>
+
+<#macro do_thrice>
+  <#nested 1>
+  <#nested 2>
+  <#nested 3>
+</#macro>
+<@do_thrice ; x>
+  ${x} Anything.
+</@do_thrice>
+
+<#macro repeat count>
+  <#list 1..count as x>
+    <#nested x, x/2, x==count>
+  </#list>
+</#macro>
+<@repeat count=4 ; c, halfc, last>
+  ${c}. ${halfc}<#if last> Last!</#if>
+</@repeat>
+
+<#macro test>
+  Test text
+  <#return>
+  Will not be printed.
+</#macro>
+<@test/>
+
+
