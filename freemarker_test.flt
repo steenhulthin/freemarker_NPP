@@ -110,7 +110,7 @@ Primary content continued
 </#if>
 
 
-<!--escape-->
+<!--escape, noescape-->
 <#escape x as x?html>
   First name: ${firstName}
   Last name: ${lastName}
@@ -424,4 +424,44 @@ ${avg()!"N/A"}
 </#macro>
 <@test/>
 
+
+<!--setting-->
+${1.2}
+<#setting locale="en_US">
+${1.2}
+
+
+<!--stop-->
+<#stop>
+<#stop reason>
+
+
+<!--user-defined directives-->
+<@html_escape>
+  a < b
+  Romeo & Juliet
+</@html_escape>
+
+<@list items=["mouse", "elephant", "python"] title="Animals"/>
+<#macro list title items>
+  <p>${title?cap_first}:
+  <ul>
+    <#list items as x>
+      <li>${x?cap_first}
+    </#list>
+  </ul>
+</#macro>  
+
+<@myRepeatMacro count=4 ; x, last>
+  ${x}. Something... <#if last> This was the last!</#if>
+</@myRepeatMacro> 
+
+<@myRepeatMacro count=4 ; x>
+  ${x}. Something...
+</@myRepeatMacro> 
+
+
+<@myRepeatMacro count=4>
+  Something...
+</@myRepeatMacro>
 
