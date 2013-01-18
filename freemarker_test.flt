@@ -465,3 +465,196 @@ ${1.2}
   Something...
 </@myRepeatMacro>
 
+
+<!--end of directives-->
+
+
+
+<!--start of built-ins-->
+
+<!--substring-->
+- ${'abc'?substring(0)}
+- ${'abc'?substring(1)}
+- ${'abc'?substring(2)}
+- ${'abc'?substring(3)}
+
+- ${'abc'?substring(0, 0)}
+- ${'abc'?substring(0, 1)}
+- ${'abc'?substring(0, 2)}
+- ${'abc'?substring(0, 3)}
+
+- ${'abc'?substring(0, 1)}
+- ${'abc'?substring(1, 2)}
+- ${'abc'?substring(2, 3)}
+
+
+<!--cap_first-->
+${"  green mouse"?cap_first}
+${"GreEN mouse"?cap_first}
+${"- green mouse"?cap_first}
+
+
+<!--uncap_first-->
+${"  green mouse"?uncap_first}
+${"GreEN mouse"?uncap_first}
+${"- green mouse"?uncap_first}
+
+
+<!--capitalize-->
+
+${"  green  mouse"?capitalize}
+${"GreEN mouse"?capitalize}  
+
+
+<!--chop_linebreak-->
+${"GreEN 
+mouse"?chop_linebreak}  
+
+
+<!--date, time, datetime-->
+<#assign test1 = "10/25/1995"?date("MM/dd/yyyy")>
+<#assign test2 = "15:05:30"?time("HH:mm:ss")>
+<#assign test3 = "1995-10-25 03:05 PM"?datetime("yyyy-MM-dd hh:mm a")>
+${test1}
+${test2}
+${test3}
+
+<#assign test1 = "Oct 25, 1995"?date>
+<#assign test2 = "3:05:30 PM"?time>
+<#assign test3 = "Oct 25, 1995 03:05:00 PM"?datetime>
+${test1}
+${test2}
+${test3}
+
+
+<!--ends_with-->
+"redhead"?ends_with("head")
+
+
+<!--html-->
+<input type=text name=user value="${user?html}"> 
+
+
+<!--groups, matches-->
+
+<#if "fxo"?matches("f.?o")>Matches.<#else>Does not match.</#if>
+
+<#assign res = "foo bar fyo"?matches("f.?o")>
+<#if res>Matches.<#else>Does not match.</#if>
+Matching sub-strings:
+<#list res as m>
+- ${m}
+</#list>
+
+<#assign res = "aa/rx; ab/r;"?matches("(\\w[^/]+)/([^;]+);")>
+<#list res as m>
+- ${m} is ${m?groups[1]} per ${m?groups[2]}
+</#list>
+
+
+<!--index_of-->
+"abcabc"?index_of("bc")
+
+"abcabc"?index_of("bc", 2)
+
+
+<!--j_string-->
+
+<#assign beanName = 'The "foo" bean.'>
+String BEAN_NAME = "${beanName?j_string}";
+
+
+<!--js_string-->
+
+<#assign user = "Big Joe's \"right hand\"">
+<script>
+  alert("Welcome ${user?js_string}!");
+</script>
+
+
+<!--json_string-->
+
+"abcabc"?json_string
+
+
+<!--last_index_of-->
+
+"abcabc"?last_index_of("ab")
+
+"abcabc"?last_index_of("ab", 2)
+
+
+<!--length-->
+
+"abcabc"?length
+
+
+<!--lower_case-->
+
+"GrEeN MoUsE"?lower_case
+
+
+<!--left_pad-->
+
+[${""?left_pad(5)}]
+[${"a"?left_pad(5)}]
+[${"ab"?left_pad(5)}]
+[${"abc"?left_pad(5)}]
+[${"abcd"?left_pad(5)}]
+[${"abcde"?left_pad(5)}]
+[${"abcdef"?left_pad(5)}]
+[${"abcdefg"?left_pad(5)}]
+[${"abcdefgh"?left_pad(5)}]
+
+[${""?left_pad(5, "-")}]
+[${"a"?left_pad(5, "-")}]
+[${"ab"?left_pad(5, "-")}]
+[${"abc"?left_pad(5, "-")}]
+[${"abcd"?left_pad(5, "-")}]
+[${"abcde"?left_pad(5, "-")}]
+
+[${""?left_pad(8, ".oO")}]
+[${"a"?left_pad(8, ".oO")}]
+[${"ab"?left_pad(8, ".oO")}]
+[${"abc"?left_pad(8, ".oO")}]
+[${"abcd"?left_pad(8, ".oO")}]
+
+
+<!--right_pad-->
+
+[${""?right_pad(5)}]
+[${"a"?right_pad(5)}]
+[${"ab"?right_pad(5)}]
+[${"abc"?right_pad(5)}]
+[${"abcd"?right_pad(5)}]
+[${"abcde"?right_pad(5)}]
+[${"abcdef"?right_pad(5)}]
+[${"abcdefg"?right_pad(5)}]
+[${"abcdefgh"?right_pad(5)}]
+
+[${""?right_pad(8, ".oO")}]
+[${"a"?right_pad(8, ".oO")}]
+[${"ab"?right_pad(8, ".oO")}]
+[${"abc"?right_pad(8, ".oO")}]
+[${"abcd"?right_pad(8, ".oO")}]
+
+
+<!--contains-->
+
+<#if "piceous"?contains("ice")>It contains "ice"</#if>
+
+
+<!--number-->
+"1.23E6"?number
+
+
+<!--replace-->
+
+${"this is a car acarus"?replace("car", "bulldozer")}
+
+${"aaaaa"?replace("aaa", "X")}
+
+"foo"?replace("","|")
+
+
+<!--
