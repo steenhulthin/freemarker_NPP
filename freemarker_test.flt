@@ -991,4 +991,15 @@ Sorted by name.last:
 <#list values as value>${value} = ${h[value]}; </#list>
 
 
-<!---->
+<!--Built-ins for nodes (for XML) - see http://freemarker.sourceforge.net/docs/ref_builtins_node.html-->
+<!--children, parent, root, ancestors, node_name, node_type and node_namespace-->
+
+node?children
+node?parent
+node?root
+node?ancestors
+node?node_name
+node?node_type
+node?node_namespace
+
+
