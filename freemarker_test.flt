@@ -657,4 +657,81 @@ ${"aaaaa"?replace("aaa", "X")}
 "foo"?replace("","|")
 
 
-<!--
+<!--url-->
+
+<#assign x = 'a/b c'>
+${x?url}
+
+<a href="foo.cgi?x=${x?url}&y=${y?url}">Click here...</a>
+
+<#--
+  This will use the charset specified by the programmers
+  before the template execution has started.
+-->
+<a href="foo.cgi?x=${x?url}">foo</a>
+
+<#-- Use UTF-8 charset for URL escaping from now: -->
+<#setting url_escaping_charset="UTF-8">
+
+<#-- This will surely use UTF-8 charset -->
+<a href="bar.cgi?x=${x?url}">bar</a>
+
+<a href="foo.cgi?x=${x?url('ISO-8895-2')}">foo</a>
+
+
+<!--split-->
+
+<#list "someMOOtestMOOtext"?split("MOO") as x>
+- ${x}
+</#list>
+
+<#list "some,,test,text,"?split(",") as x>
+- "${x}"
+</#list>
+
+
+<!--starts_with-->
+
+"redhead"?starts_with("red")
+
+"red"?starts_with("red")
+
+
+<!--string-->
+
+"red"?string
+
+
+<!--trim-->
+
+(${"  green mouse  "?trim})
+
+
+<!--upper_case-->
+
+"GrEeN MoUsE"?upper_case
+
+
+<!--word_list-->
+
+<#assign words = "   a bcd, .   1-2-3"?word_list>
+<#list words as word>[${word}]</#list>
+
+
+<!--xhtml, xml-->
+
+string?xhtml
+string?xml
+
+
+<!--Common flags ('irmscf')-->
+
+<#assign s = 'foo bAr baar'>
+${s?replace('ba', 'XY')}
+i: ${s?replace('ba', 'XY', 'i')}
+if: ${s?replace('ba', 'XY', 'if')}
+r: ${s?replace('ba*', 'XY', 'r')}
+ri: ${s?replace('ba*', 'XY', 'ri')}
+rif: ${s?replace('ba*', 'XY', 'rif')}
+
+
