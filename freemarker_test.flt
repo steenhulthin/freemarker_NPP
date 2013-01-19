@@ -1,3 +1,5 @@
+
+
 <!--assign-->
 <#assign seasons = ["winter", "spring", "summer", "autumn"]>
 <#assign test = test + 1>  
@@ -155,9 +157,6 @@ From: ${mailMessage.From?html}
     ${itemCode4}
   </#escape>
 </#escape>  
-
-	
-	
 
   Customer Name: ${customerName?html}
   Items to ship:
@@ -472,6 +471,7 @@ ${1.2}
 
 <!--start of built-ins-->
 
+<!--built-ins for strings - see http://freemarker.sourceforge.net/docs/ref_builtins_string.html -->
 <!--substring-->
 - ${'abc'?substring(0)}
 - ${'abc'?substring(1)}
@@ -733,5 +733,134 @@ if: ${s?replace('ba', 'XY', 'if')}
 r: ${s?replace('ba*', 'XY', 'r')}
 ri: ${s?replace('ba*', 'XY', 'ri')}
 rif: ${s?replace('ba*', 'XY', 'rif')}
+
+<!--built-ins for numbers - see http://freemarker.sourceforge.net/docs/ref_builtins_number.html -->
+<!--c-->
+
+${x?c}
+
+
+<!--string (when used with a numerical value)-->
+
+<#assign x=42>
+${x}
+${x?string}  <#-- the same as ${x} -->
+${x?string.number}
+${x?string.currency}
+${x?string.percent}
+${x?string.computer}
+
+<#setting number_format="currency">
+<#assign x=42>
+${x}
+${x?string}  <#-- the same as ${x} -->
+${x?string.number}
+${x?string.currency}
+${x?string.percent}
+
+<#assign x = 1.234>
+${x?string("0")}
+${x?string("0.#")}
+${x?string("0.##")}
+${x?string("0.###")}
+${x?string("0.####")}
+
+${1?string("000.00")}
+${12.1?string("000.00")}
+${123.456?string("000.00")}
+
+${1.2?string("0")}
+${1.8?string("0")}
+${1.5?string("0")} <-- 1.5, rounded towards even neighbor
+${2.5?string("0")} <-- 2.5, rounded towards even neighbor
+
+${12345?string("0.##E0")}
+
+<#setting number_format="0.##">
+${1.234}
+
+<#setting locale="en_US">
+US people write:        ${12345678?string(",##0.00")}
+<#setting locale="hu">
+Hungarian people write: ${12345678?string(",##0.00")}
+
+
+<!--round, floor, ceiling-->
+
+<#assign testlist=[
+  0, 1, -1, 0.5, 1.5, -0.5,
+  -1.5, 0.25, -0.25, 1.75, -1.75]>
+<#list testlist as result>
+    ${result} ?floor=${result?floor} ?ceiling=${result?ceiling} ?round=${result?round}
+</#list>
+
+
+<!--Built-ins for dates-->
+
+<!--string (when used with a date value)-->
+
+${openingTime?string.short}
+${openingTime?string.medium}
+${openingTime?string.long}
+${openingTime?string.full}
+
+${nextDiscountDay?string.short}
+${nextDiscountDay?string.medium}
+${nextDiscountDay?string.long}
+${nextDiscountDay?string.full}
+
+${lastUpdated?string.short}
+${lastUpdated?string.medium}
+${lastUpdated?string.long}
+${lastUpdated?string.full}
+
+${lastUpdated?string.short_long} <#-- short date, long time -->
+${lastUpdated?string.medium_short} <#-- medium date, short time -->
+
+${lastUpdated?string("yyyy-MM-dd HH:mm:ss zzzz")}
+${lastUpdated?string("EEE, MMM d, ''yy")}
+${lastUpdated?string("EEEE, MMMM dd, yyyy, hh:mm:ss a '('zzz')'")}
+
+
+<!--date, time, datetime (when used with a date value)-->
+
+<#assign x = openingTime> <#-- no problem can occur here -->
+${openingTime?time} <#-- without ?time it would fail -->
+<#-- For the sake of better understanding, consider this: -->
+<#assign openingTime = openingTime?time>
+${openingTime} <#-- this will work now -->
+
+Last updated: ${lastUpdated} <#-- assume that lastUpdated is a date-time value -->
+Last updated date: ${lastUpdated?date}
+Last updated time: ${lastUpdated?time}
+
+
+<!--iso...-->
+
+<#assign aDateTime = .now>
+<#assign aDate = aDateTime?date>
+<#assign aTime = aDateTime?time>
+
+Basic formats:
+${aDate?iso_utc}
+${aTime?iso_utc}
+${aDateTime?iso_utc}
+
+Different accuracies:
+${aTime?iso_utc_ms}
+${aDateTime?iso_utc_m}
+
+Local time zone:
+${aDateTime?iso_local}
+
+<#assign aDateTime = .now>
+${aDateTime?iso("UTC")}
+${aDateTime?iso("GMT-02:30")}
+${aDateTime?iso("Europe/Rome")}
+
+The usual variations are supported:
+${aDateTime?iso_m("GMT+02")}
+${aDateTime?iso_m_nz("GMT+02")}
+${aDateTime?iso_nz("GMT+02")}
 
 
