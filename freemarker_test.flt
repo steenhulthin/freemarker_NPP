@@ -1003,3 +1003,73 @@ node?node_type
 node?node_namespace
 
 
+<!--Seldom used and expert built-ins - see http://freemarker.sourceforge.net/docs/ref_builtins_expert.html-->
+
+<!--byte, double, float, int, long, short-->
+somenumber?byte
+somenumber?double
+somenumber?float
+somenumber?int
+somenumber?long
+somenumber?short
+
+
+<!--number_to_date, number_to_time, number_to_datetime-->
+
+${1305575275540?number_to_datetime}
+${1305575275540?number_to_date}
+${1305575275540?number_to_time}
+
+
+<!--eval-->
+
+"1+2"?eval
+
+
+<!--has_content-->
+
+product.color?has_content
+(product.color)?has_content
+
+
+<!--interpret-->
+
+<#assign x=["a", "b", "c"]>
+<#assign templateSource = r"<#list x as y>${y}</#list>">
+<#-- Note: That r was needed so that the ${y} is not interpreted above -->
+<#assign inlineTemplate = templateSource?interpret>
+<@inlineTemplate />
+
+<#assign inlineTemplate = [templateSource, "myInlineTemplate"]?interpret>
+
+
+<!--is_...-->
+
+myobject?is_string
+myobject?is_number
+myobject?is_boolean
+myobject?is_date
+myobject?is_method
+myobject?is_transform
+myobject?is_macro
+myobject?is_hash
+myobject?is_hash_ex
+myobject?is_sequence
+myobject?is_collection
+myobject?is_enumerable
+myobject?is_indexable
+myobject?is_directive
+myobject?is_node
+
+
+<!--namespace-->
+
+myobject?namespace
+
+
+<!--new-->
+
+<#-- Creates an user-defined directive be calling the parameterless constructor of the class -->
+<#assign word_wrapp = "com.acmee.freemarker.WordWrapperDirective"?new()>
+<#-- Creates an user-defined directive be calling the constructor with one numerical argument -->
+<#assign word_wrapp_narrow = "com.acmee.freemarker.WordWrapperDirective"?new(40)>  
