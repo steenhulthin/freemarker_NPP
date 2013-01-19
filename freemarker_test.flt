@@ -864,3 +864,131 @@ ${aDateTime?iso_m_nz("GMT+02")}
 ${aDateTime?iso_nz("GMT+02")}
 
 
+<!--Built-ins for booleans - see http://freemarker.sourceforge.net/docs/ref_builtins_boolean.html-->
+
+foo?string
+foo?string("yes", "no")
+
+
+<!--Built-ins for sequences - see http://freemarker.sourceforge.net/docs/ref_builtins_sequence.html -->
+
+<!--first, last-->
+
+<#assign x = ["red", 16, "blue", "cyan"]>
+${x?first}
+${x?last}
+
+
+<!--seq_contains-->
+
+<#assign x = ["red", 16, "blue", "cyan"]>
+"blue": ${x?seq_contains("blue")?string("yes", "no")}
+"yellow": ${x?seq_contains("yellow")?string("yes", "no")}
+16: ${x?seq_contains(16)?string("yes", "no")}
+"16": ${x?seq_contains("16")?string("yes", "no")}
+
+
+<!--seq_index_of-->
+
+<#assign colors = ["red", "green", "blue"]>
+${colors?seq_index_of("blue")}
+${colors?seq_index_of("red")}
+${colors?seq_index_of("purple")}
+
+<#assign names = ["Joe", "Fred", "Joe", "Susan"]>
+No 2nd param: ${names?seq_index_of("Joe")}
+-2: ${names?seq_index_of("Joe", -2)}
+-1: ${names?seq_index_of("Joe", -1)}
+ 0: ${names?seq_index_of("Joe", 0)}
+ 1: ${names?seq_index_of("Joe", 1)}
+ 2: ${names?seq_index_of("Joe", 2)}
+ 3: ${names?seq_index_of("Joe", 3)}
+ 4: ${names?seq_index_of("Joe", 4)}
+ 
+ 
+ <!--seq_last_index_of-->
+ 
+ <#assign names = ["Joe", "Fred", "Joe", "Susan"]>
+No 2nd param: ${names?seq_last_index_of("Joe")}
+-2: ${names?seq_last_index_of("Joe", -2)}
+-1: ${names?seq_last_index_of("Joe", -1)}
+ 0: ${names?seq_last_index_of("Joe", 0)}
+ 1: ${names?seq_last_index_of("Joe", 1)}
+ 2: ${names?seq_last_index_of("Joe", 2)}
+ 3: ${names?seq_last_index_of("Joe", 3)}
+ 4: ${names?seq_last_index_of("Joe", 4)}
+
+
+<!--reverse-->
+
+${x?reverse}
+
+
+<!--size-->
+
+${x?size}
+
+
+<!--sort-->
+
+<#assign ls = ["whale", "Barbara", "zeppelin", "aardvark", "beetroot"]?sort>
+<#list ls as i>${i} </#list>
+
+
+<!--sort_by-->
+
+<#assign ls = [
+  {"name":"whale", "weight":2000},
+  {"name":"Barbara", "weight":53},
+  {"name":"zeppelin", "weight":-200},
+  {"name":"aardvark", "weight":30},
+  {"name":"beetroot", "weight":0.3}
+]>
+Order by name:
+<#list ls?sort_by("name") as i>
+- ${i.name}: ${i.weight}
+</#list>
+
+Order by weight:
+<#list ls?sort_by("weight") as i>
+- ${i.name}: ${i.weight}
+</#list>
+
+<#assign members = [
+    {"name": {"first": "Joe", "last": "Smith"}, "age": 40},
+    {"name": {"first": "Fred", "last": "Crooger"}, "age": 35},
+    {"name": {"first": "Amanda", "last": "Fox"}, "age": 25}]>
+Sorted by name.last: 
+<#list members?sort_by(['name', 'last']) as m>
+- ${m.name.last}, ${m.name.first}: ${m.age} years old
+</#list>
+
+
+<!--chunk-->
+
+<#assign seq = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']>
+
+<#list seq?chunk(4) as row>
+  <#list row as cell>${cell} </#list>
+</#list>
+
+<#list seq?chunk(4, '-') as row>
+  <#list row as cell>${cell} </#list>
+</#list>
+
+
+<!--Built-ins for hashes - see http://freemarker.sourceforge.net/docs/ref_builtins_hash.html-->
+
+<!--keys-->
+<#assign h = {"name":"mouse", "price":50}>
+<#assign keys = h?keys>
+<#list keys as key>${key} = ${h[key]}; </#list>
+
+
+<!--values-->
+<#assign h = {"name":"mouse", "price":50}>
+<#assign values = h?values>
+<#list values as value>${value} = ${h[value]}; </#list>
+
+
+<!---->
