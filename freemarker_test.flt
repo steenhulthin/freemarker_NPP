@@ -1072,4 +1072,27 @@ myobject?namespace
 <#-- Creates an user-defined directive be calling the parameterless constructor of the class -->
 <#assign word_wrapp = "com.acmee.freemarker.WordWrapperDirective"?new()>
 <#-- Creates an user-defined directive be calling the constructor with one numerical argument -->
-<#assign word_wrapp_narrow = "com.acmee.freemarker.WordWrapperDirective"?new(40)>  
+<#assign word_wrapp_narrow = "com.acmee.freemarker.WordWrapperDirective"?new(40)>
+
+
+<!--Special Variable Reference - see http://freemarker.sourceforge.net/docs/ref_specvar.html-->
+
+.data_model
+.error
+.globals
+.lang
+.locale
+.locals
+.main
+.namespace
+.node
+.now
+.template_name
+.url_escaping_charset
+.vars
+.version
+
+
+<!--Reserved names in FTL-->
+
+<!--true, false, gt, gte, lt, lte, as, in, using-->
