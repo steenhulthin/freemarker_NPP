@@ -64,7 +64,7 @@ Primary content continued
 </#compress>)
 
 
-<!--if, elseif and  else--->
+<!--if, elseif and else--->
 <#if x == 1>
   x is 1
 </#if>  
@@ -1094,3 +1094,7 @@ myobject?namespace
 <!--Reserved names in FTL-->
 
 <!--true, false, gt, gte, lt, lte, as, in, using-->
+
+<!-- test of multi line 
+comment 
+-->
