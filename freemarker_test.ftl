@@ -1,5 +1,3 @@
-
-
 <!--assign-->
 <#assign seasons = ["winter", "spring", "summer", "autumn"]>
 <#assign test = test + 1>  

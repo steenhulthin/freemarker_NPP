@@ -2,8 +2,8 @@
     <UserLang name="freemarker" ext="ftl">
         <Settings>
             <Global caseIgnored="no" />
-            <TreatAsSymbol comment="no" commentLine="no" />
-            <Prefix words1="no" words2="no" words3="no" words4="no" />
+            <TreatAsSymbol comment="yes" commentLine="no" />
+            <Prefix words1="yes" words2="no" words3="no" words4="no" />
         </Settings>
         <KeywordLists>
             <Keywords name="Delimiters">000000</Keywords>
@@ -11,26 +11,26 @@
             <Keywords name="Folder-"></Keywords>
             <Keywords name="Operators"></Keywords>
             <Keywords name="Comment"> 1&lt;!-- 2--&gt; 0</Keywords>
-            <Keywords name="Words1"></Keywords>
+            <Keywords name="Words1">ancestors byte c cap_first capitalize ceiling children chop_linebreak chunk contains date datetime double ends_with eval first floor groups float has_content html index_of int interpret is_ iso iso_ j_string js_string keys last last_index_of left_pad length long lower_case matches namespace new node_namespace node_name node_type number number_to_date number_to_datetime number_to_time parent replace reverse right_pad round root rtf short size sort seq_contains seq_index_of seq_last_index_of sort_by split starts_with string substring time trim uncap_first upper_case url values word_list xhtml xml&#x000D;&#x000A;</Keywords>
             <Keywords name="Words2"></Keywords>
             <Keywords name="Words3"></Keywords>
             <Keywords name="Words4"></Keywords>
         </KeywordLists>
         <Styles>
-            <WordsStyle name="DEFAULT" styleID="11" fgColor="000000" bgColor="FFFFFF" fontStyle="0" />
-            <WordsStyle name="FOLDEROPEN" styleID="12" fgColor="000000" bgColor="FFFFFF" fontStyle="0" />
-            <WordsStyle name="FOLDERCLOSE" styleID="13" fgColor="000000" bgColor="FFFFFF" fontStyle="0" />
-            <WordsStyle name="KEYWORD1" styleID="5" fgColor="000000" bgColor="FFFFFF" fontStyle="0" />
-            <WordsStyle name="KEYWORD2" styleID="6" fgColor="000000" bgColor="FFFFFF" fontStyle="0" />
-            <WordsStyle name="KEYWORD3" styleID="7" fgColor="000000" bgColor="FFFFFF" fontStyle="0" />
-            <WordsStyle name="KEYWORD4" styleID="8" fgColor="000000" bgColor="FFFFFF" fontStyle="0" />
-            <WordsStyle name="COMMENT" styleID="1" fgColor="FF0000" bgColor="FFFFFF" fontStyle="2" />
-            <WordsStyle name="COMMENT LINE" styleID="2" fgColor="000000" bgColor="FFFFFF" fontStyle="0" />
-            <WordsStyle name="NUMBER" styleID="4" fgColor="000000" bgColor="FFFFFF" fontStyle="0" />
-            <WordsStyle name="OPERATOR" styleID="10" fgColor="000000" bgColor="FFFFFF" fontStyle="0" />
-            <WordsStyle name="DELIMINER1" styleID="14" fgColor="000000" bgColor="FFFFFF" fontStyle="0" />
-            <WordsStyle name="DELIMINER2" styleID="15" fgColor="000000" bgColor="FFFFFF" fontStyle="0" />
-            <WordsStyle name="DELIMINER3" styleID="16" fgColor="000000" bgColor="FFFFFF" fontStyle="0" />
+            <WordsStyle name="DEFAULT" styleID="11" fgColor="000000" bgColor="FFFFFF" fontName="" fontStyle="0" />
+            <WordsStyle name="FOLDEROPEN" styleID="12" fgColor="000000" bgColor="FFFFFF" fontName="" fontStyle="0" />
+            <WordsStyle name="FOLDERCLOSE" styleID="13" fgColor="000000" bgColor="FFFFFF" fontName="" fontStyle="0" />
+            <WordsStyle name="KEYWORD1" styleID="5" fgColor="0000FF" bgColor="FF0000" fontName="" fontStyle="0" />
+            <WordsStyle name="KEYWORD2" styleID="6" fgColor="000000" bgColor="FFFFFF" fontName="" fontStyle="0" />
+            <WordsStyle name="KEYWORD3" styleID="7" fgColor="000000" bgColor="FFFFFF" fontName="" fontStyle="0" />
+            <WordsStyle name="KEYWORD4" styleID="8" fgColor="000000" bgColor="FFFFFF" fontName="" fontStyle="0" />
+            <WordsStyle name="COMMENT" styleID="1" fgColor="FF0000" bgColor="FFFFFF" fontName="" fontStyle="0" />
+            <WordsStyle name="COMMENT LINE" styleID="2" fgColor="000000" bgColor="FFFFFF" fontName="" fontStyle="0" />
+            <WordsStyle name="NUMBER" styleID="4" fgColor="000000" bgColor="FFFFFF" fontName="" fontStyle="0" />
+            <WordsStyle name="OPERATOR" styleID="10" fgColor="000000" bgColor="FFFFFF" fontName="" fontStyle="0" />
+            <WordsStyle name="DELIMINER1" styleID="14" fgColor="000000" bgColor="FFFFFF" fontName="" fontStyle="0" />
+            <WordsStyle name="DELIMINER2" styleID="15" fgColor="000000" bgColor="FFFFFF" fontName="" fontStyle="0" />
+            <WordsStyle name="DELIMINER3" styleID="16" fgColor="000000" bgColor="FFFFFF" fontName="" fontStyle="0" />
         </Styles>
     </UserLang>
 </NotepadPlus>
