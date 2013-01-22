@@ -1,35 +1,35 @@
 <NotepadPlus>
-    <UserLang name="freemarker" ext="ftl">
+    <UserLang name="FreeMarker_udl1" ext="ftl">
         <Settings>
             <Global caseIgnored="no" />
             <TreatAsSymbol comment="no" commentLine="yes" />
-            <Prefix words1="yes" words2="no" words3="no" words4="no" />
+            <Prefix words1="no" words2="no" words3="yes" words4="no" />
         </Settings>
         <KeywordLists>
             <Keywords name="Delimiters">000000</Keywords>
-            <Keywords name="Folder+">&lt;#switch</Keywords>
-            <Keywords name="Folder-">&lt;/#switch&gt;</Keywords>
-            <Keywords name="Operators">?</Keywords>
-            <Keywords name="Comment"> 1&lt;!-- 2--&gt; 0&lt;!--a 0&lt;!--b 0&lt;!--c 0&lt;!--d 0&lt;!--e 0&lt;!--f 0&lt;!--g 0&lt;!--h 0&lt;!--i 0&lt;!--j 0&lt;!--k 0&lt;!--l 0&lt;!--m 0&lt;!--n 0&lt;!--o 0&lt;!--p 0&lt;!--q 0&lt;!--r 0&lt;!--s 0&lt;!--t 0&lt;!--u 0&lt;!--v 0&lt;!--w 0&lt;!--x 0&lt;!--y 0&lt;!--z 0&lt;!--A 0&lt;!--B 0&lt;!--C 0&lt;!--D 0&lt;!--E 0&lt;!--F 0&lt;!--G 0&lt;!--H 0&lt;!--I 0&lt;!--J 0&lt;!--K 0&lt;!--L 0&lt;!--M 0&lt;!--N 0&lt;!--O 0&lt;!--P 0&lt;!--Q 0&lt;!--R 0&lt;!--S 0&lt;!--T 0&lt;!--U 0&lt;!--V 0&lt;!--W 0&lt;!--X 0&lt;!--Y 0&lt;!--Z</Keywords>
-            <Keywords name="Words1">?ancestors ?byte ?c ?cap_first ?capitalize ?ceiling ?children ?chop_linebreak ?chunk ?contains ?date ?datetime ?double ?ends_with ?eval ?first ?floor ?groups ?float ?has_content ?html ?index_of ?int ?interpret ?is_ ?iso ?iso_ ?j_string ?js_string ?keys ?last ?last_index_of ?left_pad ?length ?long ?lower_case ?matches ?namespace ?new ?node_namespace ?node_name ?node_type ?number ?number_to_date ?number_to_datetime ?number_to_time ?parent ?replace ?reverse ?right_pad ?round ?root ?rtf ?short ?size ?sort ?seq_contains ?seq_index_of ?seq_last_index_of ?sort_by ?split ?starts_with ?string ?substring ?time ?trim ?uncap_first ?upper_case ?url ?values ?word_list ?xhtml ?xml&#x000D;&#x000A;</Keywords>
-            <Keywords name="Words2">&lt;#assign &lt;#attempt &lt;#break &lt;#case &lt;#compress &lt;#default &lt;#else &lt;#elseif &lt;#escape &lt;#fallback &lt;#function &lt;#flush &lt;#ftl &lt;#global &lt;#if &lt;#import &lt;#include &lt;#list &lt;#local &lt;#lt &lt;#macro &lt;#nested &lt;#noescape &lt;#nt &lt;#recover &lt;#recurse &lt;#return &lt;#rt &lt;#setting &lt;#stop &lt;#switch &lt;#t &lt;#visit</Keywords>
+            <Keywords name="Folder+">&lt;#macro &lt;#if</Keywords>
+            <Keywords name="Folder-">#macro&gt; #if&gt;</Keywords>
+            <Keywords name="Operators">( ) . / ? { }</Keywords>
+            <Keywords name="Comment"> 1&lt;#-- 1 2--&gt; 0&lt;#--a 0&lt;#--b 0&lt;#--c 0&lt;#--d 0&lt;#--e 0&lt;#--f 0&lt;#--g 0&lt;#--h 0&lt;#--i 0&lt;#--j 0&lt;#--k 0&lt;#--l 0&lt;#--m 0&lt;#--n 0&lt;#--o 0&lt;#--p 0&lt;#--q 0&lt;#--r 0&lt;#--s 0&lt;#--t 0&lt;#--u 0&lt;#--v 0&lt;#--x 0&lt;#--y 0&lt;#--z 0&lt;#--A 0&lt;#--B 0&lt;#--C 0&lt;#--D 0&lt;#--E 0&lt;#--F 0&lt;#--G 0&lt;#--H 0&lt;#--I 0&lt;#--J 0&lt;#--K 0&lt;#--L 0&lt;#--M 0&lt;#--N 0&lt;#--O 0&lt;#--P 0&lt;#--Q 0&lt;#--R 0&lt;#--S 0&lt;#--T 0&lt;#--U 0&lt;#--V 0&lt;#--X 0&lt;#--Y 0&lt;#--Z</Keywords>
+            <Keywords name="Words1"></Keywords>
+            <Keywords name="Words2">ancestors byte c cap_first capitalize ceiling children chop_linebreak chunk contains date datetime double ends_with eval first floor groups float has_content html index_of int interpret is_ iso iso_ j_string js_string keys last last_index_of left_pad length long lower_case matches namespace new node_namespace node_name node_type number number_to_date number_to_datetime number_to_time parent replace reverse right_pad round root rtf short size sort seq_contains seq_index_of seq_last_index_of sort_by split starts_with string substring time trim uncap_first upper_case url values word_list xhtml xml</Keywords>
             <Keywords name="Words3"></Keywords>
             <Keywords name="Words4"></Keywords>
         </KeywordLists>
         <Styles>
             <WordsStyle name="DEFAULT" styleID="11" fgColor="000000" bgColor="FFFFFF" fontName="" fontStyle="0" />
-            <WordsStyle name="FOLDEROPEN" styleID="12" fgColor="804040" bgColor="FFFFFF" fontName="" fontStyle="1" />
-            <WordsStyle name="FOLDERCLOSE" styleID="13" fgColor="800000" bgColor="FFFFFF" fontName="" fontStyle="1" />
-            <WordsStyle name="KEYWORD1" styleID="5" fgColor="0000FF" bgColor="FF0000" fontName="" fontStyle="0" />
-            <WordsStyle name="KEYWORD2" styleID="6" fgColor="FFFF00" bgColor="000000" fontName="" fontStyle="0" />
-            <WordsStyle name="KEYWORD3" styleID="7" fgColor="000000" bgColor="FFFFFF" fontName="" fontStyle="0" />
+            <WordsStyle name="FOLDEROPEN" styleID="12" fgColor="0080FF" bgColor="FFFFFF" fontName="" fontStyle="0" />
+            <WordsStyle name="FOLDERCLOSE" styleID="13" fgColor="0080FF" bgColor="FFFFFF" fontName="" fontStyle="0" />
+            <WordsStyle name="KEYWORD1" styleID="5" fgColor="0000FF" bgColor="FFFFFF" fontName="" fontStyle="0" />
+            <WordsStyle name="KEYWORD2" styleID="6" fgColor="FF00FF" bgColor="FFFFFF" fontName="" fontStyle="2" />
+            <WordsStyle name="KEYWORD3" styleID="7" fgColor="8000FF" bgColor="FFFFFF" fontName="" fontStyle="0" />
             <WordsStyle name="KEYWORD4" styleID="8" fgColor="000000" bgColor="FFFFFF" fontName="" fontStyle="0" />
-            <WordsStyle name="COMMENT" styleID="1" fgColor="008040" bgColor="FFFFFF" fontName="" fontStyle="0" />
-            <WordsStyle name="COMMENT LINE" styleID="2" fgColor="008040" bgColor="FFFFFF" fontName="" fontStyle="2" />
-            <WordsStyle name="NUMBER" styleID="4" fgColor="000000" bgColor="FFFFFF" fontName="" fontStyle="0" />
-            <WordsStyle name="OPERATOR" styleID="10" fgColor="000000" bgColor="FFFFFF" fontName="" fontStyle="0" />
-            <WordsStyle name="DELIMINER1" styleID="14" fgColor="0000FF" bgColor="FFFFFF" fontName="" fontStyle="0" />
-            <WordsStyle name="DELIMINER2" styleID="15" fgColor="0000FF" bgColor="FFFFFF" fontName="" fontStyle="0" />
+            <WordsStyle name="COMMENT" styleID="1" fgColor="00FF00" bgColor="FFFFFF" fontName="" fontStyle="0" />
+            <WordsStyle name="COMMENT LINE" styleID="2" fgColor="00FF00" bgColor="FFFFFF" fontName="" fontStyle="0" />
+            <WordsStyle name="NUMBER" styleID="4" fgColor="FF0000" bgColor="FFFFFF" fontName="" fontStyle="3" />
+            <WordsStyle name="OPERATOR" styleID="10" fgColor="0080FF" bgColor="FFFFFF" fontName="" fontStyle="3" />
+            <WordsStyle name="DELIMINER1" styleID="14" fgColor="000000" bgColor="FFFFFF" fontName="" fontStyle="0" />
+            <WordsStyle name="DELIMINER2" styleID="15" fgColor="000000" bgColor="FFFFFF" fontName="" fontStyle="0" />
             <WordsStyle name="DELIMINER3" styleID="16" fgColor="000000" bgColor="FFFFFF" fontName="" fontStyle="0" />
         </Styles>
     </UserLang>

@@ -1117,7 +1117,3 @@ myobject?namespace
 line 
 comment -->
 
-
-<!-- alktg
-alkdfj
-aljk -->
