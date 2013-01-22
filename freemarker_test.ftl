@@ -4,6 +4,8 @@
 comments
 adf -->
 
+no comments
+
 <#--multi line
 comments
 adf-->
@@ -11,8 +13,6 @@ adf-->
 <#-- multi line
 comments
 adf-->
-
-
 
 no comments
 
