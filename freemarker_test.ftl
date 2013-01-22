@@ -1,4 +1,4 @@
-<!--assign-->
+<#--assign-->
 <#assign seasons = ["winter", "spring", "summer", "autumn"]>
 <#assign test = test + 1>  
 <#assign
@@ -18,7 +18,7 @@ ${x}
 <#assign x>Hello ${user}!</#assign> <#-- BAD PRACTICE! -->
 <#assign x="Hello ${user}!">
 
-<!--attempt-->
+<#--attempt-->
 Primary content
 <#attempt>
   Optional content: ${thisMayFails}
@@ -27,7 +27,7 @@ Primary content
 </#attempt>
 Primary content continued
 
-<!--switch, case and default-->
+<#--switch, case and default-->
 <#switch being.size>
   <#case "small">
      This will be processed if it is small
@@ -52,7 +52,7 @@ Primary content continued
 </#switch>
 
 
-<!--compress-->
+<#--compress-->
 <#assign x = "    moo  \n\n   ">
 (<#compress>
   1 2  3   4    5
@@ -64,7 +64,7 @@ Primary content continued
 </#compress>)
 
 
-<!--if, elseif and else--->
+<#--if, elseif and else--->
 <#if x == 1>
   x is 1
 </#if>  
@@ -110,7 +110,7 @@ Primary content continued
 </#if>
 
 
-<!--escape, noescape-->
+<#--escape, noescape-->
 <#escape x as x?html>
   First name: ${firstName}
   Last name: ${lastName}
@@ -164,7 +164,7 @@ From: ${mailMessage.From?html}
     ${itemCodeToNameMap[itemCode4]?html}  
 
 
-<!--visit, recurse, fallback-->
+<#--visit, recurse, fallback-->
 <#-- Assume that nodeWithNameX?node_name is "x" -->
 <#visit nodeWithNameX>
 Done.
@@ -246,7 +246,7 @@ There was no specific handler for node ${node?node_name}
   </#if>
 </#macro>
 
-<!--function, return-->
+<#--function, return-->
 <#function avg x y>
   <#return (x + y) / 2>
 </#function>
@@ -266,15 +266,15 @@ ${avg(10, 20, 30, 40)}
 ${avg()!"N/A"}
 
 
-<!--flush-->
+<#--flush-->
 <#flush>
 
 
-<!--ftl-->
+<#--ftl-->
 <#ftl param1=value1 param2=value2 ... paramN=valueN>
 
 
-<!--global-->
+<#--global-->
 <#global name=value>
 
 <#global name1=value1 name2=value2 ... nameN=valueN>
@@ -284,13 +284,13 @@ ${avg()!"N/A"}
 </#global>
 
 
-<!--import-->
+<#--import-->
 <#import "/libs/mylib.ftl" as my>
 
 <@my.copyright date="1999-2002"/>  
 
 
-<!--include-->
+<#--include-->
 <#assign me = "Juila Smith">
 <h1>Some test</h1>
 <p>Yeah.
@@ -302,7 +302,7 @@ ${avg()!"N/A"}
 <#include "*/footer.ftl">
 
 
-<!--list-->
+<#--list-->
 <#assign seq = ["winter", "spring", "summer", "autumn"]>
 <#list seq as x>
   ${x_index + 1}. ${x}<#if x_has_next>,</#if>
@@ -319,7 +319,7 @@ ${avg()!"N/A"}
 </#list>  
 
 
-<!--local-->
+<#--local-->
 <#local name=value>
 
 <#local name1=value1 name2=value2 nameN=valueN>
@@ -329,7 +329,7 @@ ${avg()!"N/A"}
 </#local>
 
 
-<!--t, lt, rt, nt-->
+<#--t, lt, rt, nt-->
 <#t>
 
 <#lt>
@@ -339,7 +339,7 @@ ${avg()!"N/A"}
 <#nt>
 
 
-<!--macro, nested, return-->
+<#--macro, nested, return-->
 <#-- call the macro; the macro variable is already created: -->
 <@test/>
 <#-- create the macro variable: -->
@@ -422,18 +422,18 @@ ${avg()!"N/A"}
 <@test/>
 
 
-<!--setting-->
+<#--setting-->
 ${1.2}
 <#setting locale="en_US">
 ${1.2}
 
 
-<!--stop-->
+<#--stop-->
 <#stop>
 <#stop reason>
 
 
-<!--user-defined directives-->
+<#--user-defined directives-->
 <@html_escape>
   a < b
   Romeo & Juliet
@@ -463,14 +463,14 @@ ${1.2}
 </@myRepeatMacro>
 
 
-<!--end of directives-->
+<#--end of directives-->
 
 
 
-<!--start of built-ins-->
+<#--start of built-ins-->
 
-<!--built-ins for strings - see http://freemarker.sourceforge.net/docs/ref_builtins_string.html -->
-<!--substring-->
+<#--built-ins for strings - see http://freemarker.sourceforge.net/docs/ref_builtins_string.html -->
+<#--substring-->
 - ${'abc'?substring(0)}
 - ${'abc'?substring(1)}
 - ${'abc'?substring(2)}
@@ -486,30 +486,30 @@ ${1.2}
 - ${'abc'?substring(2, 3)}
 
 
-<!--cap_first-->
+<#--cap_first-->
 ${"  green mouse"?cap_first}
 ${"GreEN mouse"?cap_first}
 ${"- green mouse"?cap_first}
 
 
-<!--uncap_first-->
+<#--uncap_first-->
 ${"  green mouse"?uncap_first}
 ${"GreEN mouse"?uncap_first}
 ${"- green mouse"?uncap_first}
 
 
-<!--capitalize-->
+<#--capitalize-->
 
 ${"  green  mouse"?capitalize}
 ${"GreEN mouse"?capitalize}  
 
 
-<!--chop_linebreak-->
+<#--chop_linebreak-->
 ${"GreEN 
 mouse"?chop_linebreak}  
 
 
-<!--date, time, datetime-->
+<#--date, time, datetime-->
 <#assign test1 = "10/25/1995"?date("MM/dd/yyyy")>
 <#assign test2 = "15:05:30"?time("HH:mm:ss")>
 <#assign test3 = "1995-10-25 03:05 PM"?datetime("yyyy-MM-dd hh:mm a")>
@@ -525,15 +525,15 @@ ${test2}
 ${test3}
 
 
-<!--ends_with-->
+<#--ends_with-->
 "redhead"?ends_with("head")
 
 
-<!--html-->
+<#--html-->
 <input type=text name=user value="${user?html}"> 
 
 
-<!--groups, matches-->
+<#--groups, matches-->
 
 <#if "fxo"?matches("f.?o")>Matches.<#else>Does not match.</#if>
 
@@ -550,19 +550,19 @@ Matching sub-strings:
 </#list>
 
 
-<!--index_of-->
+<#--index_of-->
 "abcabc"?index_of("bc")
 
 "abcabc"?index_of("bc", 2)
 
 
-<!--j_string-->
+<#--j_string-->
 
 <#assign beanName = 'The "foo" bean.'>
 String BEAN_NAME = "${beanName?j_string}";
 
 
-<!--js_string-->
+<#--js_string-->
 
 <#assign user = "Big Joe's \"right hand\"">
 <script>
@@ -570,29 +570,29 @@ String BEAN_NAME = "${beanName?j_string}";
 </script>
 
 
-<!--json_string-->
+<#--json_string-->
 
 "abcabc"?json_string
 
 
-<!--last_index_of-->
+<#--last_index_of-->
 
 "abcabc"?last_index_of("ab")
 
 "abcabc"?last_index_of("ab", 2)
 
 
-<!--length-->
+<#--length-->
 
 "abcabc"?length
 
 
-<!--lower_case-->
+<#--lower_case-->
 
 "GrEeN MoUsE"?lower_case
 
 
-<!--left_pad-->
+<#--left_pad-->
 
 [${""?left_pad(5)}]
 [${"a"?left_pad(5)}]
@@ -618,7 +618,7 @@ String BEAN_NAME = "${beanName?j_string}";
 [${"abcd"?left_pad(8, ".oO")}]
 
 
-<!--right_pad-->
+<#--right_pad-->
 
 [${""?right_pad(5)}]
 [${"a"?right_pad(5)}]
@@ -637,16 +637,16 @@ String BEAN_NAME = "${beanName?j_string}";
 [${"abcd"?right_pad(8, ".oO")}]
 
 
-<!--contains-->
+<#--contains-->
 
 <#if "piceous"?contains("ice")>It contains "ice"</#if>
 
 
-<!--number-->
+<#--number-->
 "1.23E6"?number
 
 
-<!--replace-->
+<#--replace-->
 
 ${"this is a car acarus"?replace("car", "bulldozer")}
 
@@ -655,7 +655,7 @@ ${"aaaaa"?replace("aaa", "X")}
 "foo"?replace("","|")
 
 
-<!--url-->
+<#--url-->
 
 <#assign x = 'a/b c'>
 ${x?url}
@@ -677,7 +677,7 @@ ${x?url}
 <a href="foo.cgi?x=${x?url('ISO-8895-2')}">foo</a>
 
 
-<!--split-->
+<#--split-->
 
 <#list "someMOOtestMOOtext"?split("MOO") as x>
 - ${x}
@@ -688,41 +688,41 @@ ${x?url}
 </#list>
 
 
-<!--starts_with-->
+<#--starts_with-->
 
 "redhead"?starts_with("red")
 
 "red"?starts_with("red")
 
 
-<!--string-->
+<#--string-->
 
 "red"?string
 
 
-<!--trim-->
+<#--trim-->
 
 (${"  green mouse  "?trim})
 
 
-<!--upper_case-->
+<#--upper_case-->
 
 "GrEeN MoUsE"?upper_case
 
 
-<!--word_list-->
+<#--word_list-->
 
 <#assign words = "   a bcd, .   1-2-3"?word_list>
 <#list words as word>[${word}]</#list>
 
 
-<!--xhtml, xml-->
+<#--xhtml, xml-->
 
 string?xhtml
 string?xml
 
 
-<!--Common flags ('irmscf')-->
+<#--Common flags ('irmscf')-->
 
 <#assign s = 'foo bAr baar'>
 ${s?replace('ba', 'XY')}
@@ -732,13 +732,13 @@ r: ${s?replace('ba*', 'XY', 'r')}
 ri: ${s?replace('ba*', 'XY', 'ri')}
 rif: ${s?replace('ba*', 'XY', 'rif')}
 
-<!--built-ins for numbers - see http://freemarker.sourceforge.net/docs/ref_builtins_number.html -->
-<!--c-->
+<#--built-ins for numbers - see http://freemarker.sourceforge.net/docs/ref_builtins_number.html -->
+<#--c-->
 
 ${x?c}
 
 
-<!--string (when used with a numerical value)-->
+<#--string (when used with a numerical value)-->
 
 <#assign x=42>
 ${x}
@@ -783,7 +783,7 @@ US people write:        ${12345678?string(",##0.00")}
 Hungarian people write: ${12345678?string(",##0.00")}
 
 
-<!--round, floor, ceiling-->
+<#--round, floor, ceiling-->
 
 <#assign testlist=[
   0, 1, -1, 0.5, 1.5, -0.5,
@@ -793,9 +793,9 @@ Hungarian people write: ${12345678?string(",##0.00")}
 </#list>
 
 
-<!--Built-ins for dates-->
+<#--Built-ins for dates-->
 
-<!--string (when used with a date value)-->
+<#--string (when used with a date value)-->
 
 ${openingTime?string.short}
 ${openingTime?string.medium}
@@ -820,7 +820,7 @@ ${lastUpdated?string("EEE, MMM d, ''yy")}
 ${lastUpdated?string("EEEE, MMMM dd, yyyy, hh:mm:ss a '('zzz')'")}
 
 
-<!--date, time, datetime (when used with a date value)-->
+<#--date, time, datetime (when used with a date value)-->
 
 <#assign x = openingTime> <#-- no problem can occur here -->
 ${openingTime?time} <#-- without ?time it would fail -->
@@ -833,7 +833,7 @@ Last updated date: ${lastUpdated?date}
 Last updated time: ${lastUpdated?time}
 
 
-<!--iso...-->
+<#--iso...-->
 
 <#assign aDateTime = .now>
 <#assign aDate = aDateTime?date>
@@ -862,22 +862,22 @@ ${aDateTime?iso_m_nz("GMT+02")}
 ${aDateTime?iso_nz("GMT+02")}
 
 
-<!--Built-ins for booleans - see http://freemarker.sourceforge.net/docs/ref_builtins_boolean.html-->
+<#--Built-ins for booleans - see http://freemarker.sourceforge.net/docs/ref_builtins_boolean.html-->
 
 foo?string
 foo?string("yes", "no")
 
 
-<!--Built-ins for sequences - see http://freemarker.sourceforge.net/docs/ref_builtins_sequence.html -->
+<#--Built-ins for sequences - see http://freemarker.sourceforge.net/docs/ref_builtins_sequence.html -->
 
-<!--first, last-->
+<#--first, last-->
 
 <#assign x = ["red", 16, "blue", "cyan"]>
 ${x?first}
 ${x?last}
 
 
-<!--seq_contains-->
+<#--seq_contains-->
 
 <#assign x = ["red", 16, "blue", "cyan"]>
 "blue": ${x?seq_contains("blue")?string("yes", "no")}
@@ -886,7 +886,7 @@ ${x?last}
 "16": ${x?seq_contains("16")?string("yes", "no")}
 
 
-<!--seq_index_of-->
+<#--seq_index_of-->
 
 <#assign colors = ["red", "green", "blue"]>
 ${colors?seq_index_of("blue")}
@@ -904,7 +904,7 @@ No 2nd param: ${names?seq_index_of("Joe")}
  4: ${names?seq_index_of("Joe", 4)}
  
  
- <!--seq_last_index_of-->
+ <#--seq_last_index_of-->
  
  <#assign names = ["Joe", "Fred", "Joe", "Susan"]>
 No 2nd param: ${names?seq_last_index_of("Joe")}
@@ -917,23 +917,23 @@ No 2nd param: ${names?seq_last_index_of("Joe")}
  4: ${names?seq_last_index_of("Joe", 4)}
 
 
-<!--reverse-->
+<#--reverse-->
 
 ${x?reverse}
 
 
-<!--size-->
+<#--size-->
 
 ${x?size}
 
 
-<!--sort-->
+<#--sort-->
 
 <#assign ls = ["whale", "Barbara", "zeppelin", "aardvark", "beetroot"]?sort>
 <#list ls as i>${i} </#list>
 
 
-<!--sort_by-->
+<#--sort_by-->
 
 <#assign ls = [
   {"name":"whale", "weight":2000},
@@ -962,7 +962,7 @@ Sorted by name.last:
 </#list>
 
 
-<!--chunk-->
+<#--chunk-->
 
 <#assign seq = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']>
 
@@ -975,22 +975,22 @@ Sorted by name.last:
 </#list>
 
 
-<!--Built-ins for hashes - see http://freemarker.sourceforge.net/docs/ref_builtins_hash.html-->
+<#--Built-ins for hashes - see http://freemarker.sourceforge.net/docs/ref_builtins_hash.html-->
 
-<!--keys-->
+<#--keys-->
 <#assign h = {"name":"mouse", "price":50}>
 <#assign keys = h?keys>
 <#list keys as key>${key} = ${h[key]}; </#list>
 
 
-<!--values-->
+<#--values-->
 <#assign h = {"name":"mouse", "price":50}>
 <#assign values = h?values>
 <#list values as value>${value} = ${h[value]}; </#list>
 
 
-<!--Built-ins for nodes (for XML) - see http://freemarker.sourceforge.net/docs/ref_builtins_node.html-->
-<!--children, parent, root, ancestors, node_name, node_type and node_namespace-->
+<#--Built-ins for nodes (for XML) - see http://freemarker.sourceforge.net/docs/ref_builtins_node.html-->
+<#--children, parent, root, ancestors, node_name, node_type and node_namespace-->
 
 node?children
 node?parent
@@ -1001,9 +1001,9 @@ node?node_type
 node?node_namespace
 
 
-<!--Seldom used and expert built-ins - see http://freemarker.sourceforge.net/docs/ref_builtins_expert.html-->
+<#--Seldom used and expert built-ins - see http://freemarker.sourceforge.net/docs/ref_builtins_expert.html-->
 
-<!--byte, double, float, int, long, short-->
+<#--byte, double, float, int, long, short-->
 somenumber?byte
 somenumber?double
 somenumber?float
@@ -1012,25 +1012,25 @@ somenumber?long
 somenumber?short
 
 
-<!--number_to_date, number_to_time, number_to_datetime-->
+<#--number_to_date, number_to_time, number_to_datetime-->
 
 ${1305575275540?number_to_datetime}
 ${1305575275540?number_to_date}
 ${1305575275540?number_to_time}
 
 
-<!--eval-->
+<#--eval-->
 
 "1+2"?eval
 
 
-<!--has_content-->
+<#--has_content-->
 
 product.color?has_content
 (product.color)?has_content
 
 
-<!--interpret-->
+<#--interpret-->
 
 <#assign x=["a", "b", "c"]>
 <#assign templateSource = r"<#list x as y>${y}</#list>">
@@ -1041,7 +1041,7 @@ product.color?has_content
 <#assign inlineTemplate = [templateSource, "myInlineTemplate"]?interpret>
 
 
-<!--is_...-->
+<#--is_...-->
 
 myobject?is_string
 myobject?is_number
@@ -1060,12 +1060,12 @@ myobject?is_directive
 myobject?is_node
 
 
-<!--namespace-->
+<#--namespace-->
 
 myobject?namespace
 
 
-<!--new-->
+<#--new-->
 
 <#-- Creates an user-defined directive be calling the parameterless constructor of the class -->
 <#assign word_wrapp = "com.acmee.freemarker.WordWrapperDirective"?new()>
@@ -1073,7 +1073,7 @@ myobject?namespace
 <#assign word_wrapp_narrow = "com.acmee.freemarker.WordWrapperDirective"?new(40)>
 
 
-<!--Special Variable Reference - see http://freemarker.sourceforge.net/docs/ref_specvar.html-->
+<#--Special Variable Reference - see http://freemarker.sourceforge.net/docs/ref_specvar.html-->
 
 .data_model
 .error
@@ -1091,10 +1091,10 @@ myobject?namespace
 .version
 
 
-<!--Reserved names in FTL-->
+<#--Reserved names in FTL-->
 
-<!--true, false, gt, gte, lt, lte, as, in, using-->
+<#--true, false, gt, gte, lt, lte, as, in, using -->
 
-<!-- test of multi line 
-comment 
--->
+<#-- test of 
+multi 
+line comment -->
