@@ -1,3 +1,21 @@
+<#-- comments -->
+
+<#-- multi line
+comments
+adf -->
+
+<#--multi line
+comments
+adf-->
+
+<#-- multi line
+comments
+adf-->
+
+
+
+no comments
+
 <#--assign-->
 <#assign seasons = ["winter", "spring", "summer", "autumn"]>
 <#assign test = test + 1>  
@@ -1095,6 +1113,11 @@ myobject?namespace
 
 <#--true, false, gt, gte, lt, lte, as, in, using -->
 
-<#-- test of 
-multi 
-line comment -->
+<#-- test of multi 
+line 
+comment -->
+
+
+<!-- alktg
+alkdfj
+aljk -->
