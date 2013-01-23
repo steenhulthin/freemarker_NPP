@@ -240,7 +240,6 @@ There was no specific handler for node ${node?node_name}
 
 <#list .node?children as child><#visit child></#list> 
 
-	
 
 <#import "/lib/docbook.ftl" as docbook>
 
@@ -1112,6 +1111,17 @@ myobject?namespace
 <#--Reserved names in FTL-->
 
 <#--true, false, gt, gte, lt, lte, as, in, using -->
+
+true
+false
+gt
+gte
+lt
+lte
+as
+in
+using
+
 
 <#-- test of multi 
 line 
