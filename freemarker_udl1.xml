@@ -3,7 +3,7 @@
         <Settings>
             <Global caseIgnored="no" />
             <TreatAsSymbol comment="no" commentLine="yes" />
-            <Prefix words1="no" words2="no" words3="yes" words4="no" />
+            <Prefix words1="no" words2="no" words3="no" words4="no" />
         </Settings>
         <KeywordLists>
             <Keywords name="Delimiters">000000</Keywords>
@@ -11,7 +11,7 @@
             <Keywords name="Folder-">#macro&gt; #if&gt; #switch&gt; #escape&gt; #function&gt; #list&gt;</Keywords>
             <Keywords name="Operators">( ) . / ? { }</Keywords>
             <Keywords name="Comment"> 1&lt;#-- 1 2--&gt; 0&lt;#--a 0&lt;#--b 0&lt;#--c 0&lt;#--d 0&lt;#--e 0&lt;#--f 0&lt;#--g 0&lt;#--h 0&lt;#--i 0&lt;#--j 0&lt;#--k 0&lt;#--l 0&lt;#--m 0&lt;#--n 0&lt;#--o 0&lt;#--p 0&lt;#--q 0&lt;#--r 0&lt;#--s 0&lt;#--t 0&lt;#--u 0&lt;#--v 0&lt;#--x 0&lt;#--y 0&lt;#--z 0&lt;#--A 0&lt;#--B 0&lt;#--C 0&lt;#--D 0&lt;#--E 0&lt;#--F 0&lt;#--G 0&lt;#--H 0&lt;#--I 0&lt;#--J 0&lt;#--K 0&lt;#--L 0&lt;#--M 0&lt;#--N 0&lt;#--O 0&lt;#--P 0&lt;#--Q 0&lt;#--R 0&lt;#--S 0&lt;#--T 0&lt;#--U 0&lt;#--V 0&lt;#--X 0&lt;#--Y 0&lt;#--Z</Keywords>
-            <Keywords name="Words1"></Keywords>
+            <Keywords name="Words1">&lt;#assign &lt;#attempt &lt;#break &lt;#case &lt;#compress &lt;#default &lt;#else &lt;#elseif &lt;#fallback &lt;#flush &lt;#ftl &lt;#global &lt;#import &lt;#include &lt;#local &lt;#lt &lt;#nested &lt;#noescape &lt;#nt &lt;#recover &lt;#recurse &lt;#return &lt;#rt &lt;#setting &lt;#stop &lt;#t &lt;#visit &lt;#assign&gt; &lt;#attempt&gt; &lt;#break&gt; &lt;#case&gt; &lt;#compress&gt; &lt;#default&gt; &lt;#else&gt; &lt;#elseif&gt; &lt;#fallback&gt; &lt;#flush&gt; &lt;#ftl&gt; &lt;#global&gt; &lt;#import&gt; &lt;#include&gt; &lt;#local&gt; &lt;#lt&gt; &lt;#nested&gt; &lt;#noescape&gt; &lt;#nt&gt; &lt;#recover&gt; &lt;#recurse&gt; &lt;#return&gt; &lt;#rt&gt; &lt;#setting&gt; &lt;#stop&gt; &lt;#t&gt; &lt;#visit&gt; #assign&gt; #attempt&gt; #break&gt; #case&gt; #compress&gt; #default&gt; #else&gt; #elseif&gt; #fallback&gt; #flush&gt; #ftl&gt; #global&gt; #import&gt; #include&gt; #local&gt; #lt&gt; #nested&gt; #noescape&gt; #nt&gt; #recover&gt; #recurse&gt; #return&gt; #rt&gt; #setting&gt; #stop&gt; #t&gt; #visit&gt;</Keywords>
             <Keywords name="Words2">ancestors byte c cap_first capitalize ceiling children chop_linebreak chunk contains date datetime double ends_with eval first floor groups float has_content html index_of int interpret is_ iso iso_ j_string js_string keys last last_index_of left_pad length long lower_case matches namespace new node_namespace node_name node_type number number_to_date number_to_datetime number_to_time parent replace reverse right_pad round root rtf short size sort seq_contains seq_index_of seq_last_index_of sort_by split starts_with string substring time trim uncap_first upper_case url values word_list xhtml xml</Keywords>
             <Keywords name="Words3"></Keywords>
             <Keywords name="Words4"></Keywords>
