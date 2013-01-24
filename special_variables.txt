@@ -1,0 +1,2 @@
+short medium long full 
+data_model error globals lang locale locals main namespace node current_node now output_encoding template_name url_escaping_charset vars version
