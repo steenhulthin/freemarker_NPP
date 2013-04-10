@@ -14,7 +14,7 @@
 Install 
 =================
 #. Make sure you have `Notepad++`_ installed with the option to use %APPDATA% (which is the default).
-#. Download and unzip the zipped FreeMarker.xml from the (new) `download site`_ (This is the only file you need in order to use FreeMarker_NPP_.) 
+#. Download and unzip the zipped freemarker_udl1.xml from the (new) `download site`_ (This is the only file you need in order to use FreeMarker_NPP_.) 
 #. Start `Notepad++`_ and open the "User Defined Dialogue..." (Under View -> User Defined Dialogue...) 
 
 .. _`download site`: http://steen.hulthin.dk/opensource/FreeMarker_NPP/downloads/freemarker_udl1_v0.1.0.zip
