@@ -17,9 +17,9 @@ Install
 #. Download and unzip the zipped FreeMarker.xml from the (new) `download site`_ (This is the only file you need in order to use FreeMarker_NPP_.) 
 #. Start `Notepad++`_ and open the "User Defined Dialogue..." (Under View -> User Defined Dialogue...) 
 
-.. _`download site`: http://steen.hulthin.dk/opensource/FreeMarker_NPP/downloads/FreeMarker_v0.1.zip
+.. _`download site`: http://steen.hulthin.dk/opensource/FreeMarker_NPP/downloads/FreeMarker udl1_v0.1.0.zip
 .. image:: https://github.com/steenhulthin/FreeMarker_NPP/raw/master/documentation/select_user-defined_dialogue.png
-4. Click "import" and select the unzipped FreeMarker.xml file.
+4. Click "import" and select the unzipped FreeMarker_udl1.xml file.
 
 .. image:: https://github.com/steenhulthin/FreeMarker_NPP/raw/master/documentation/import_user_define_language.png
 5. Restart `Notepad++`_
