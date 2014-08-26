@@ -1,13 +1,14 @@
 #Todo for freemarker_NPP
 
-- [ ] Make a release
-- [ ] Link to release download from webpage
+- [X] Make a release
+- [X] Link to release download from webpage
 - [ ] Use the solarized colorscheme for highlighting. 
 - [ ] Advertise the project
-	- [ ] mailing list?
-	- [ ] StackExchange
+	- [X] mailing list?
+	- [X] StackExchange
 	- [ ] The [FreeMarker editors site](http://freemarker.org/editors.html)
 - [ ] Fix NPP udl site link.
-- [ ] Add a udl2 
+- [ ] Add a udl 2 
 - [ ] video on how to download and add the user defined language.
 - [ ] Screenshot of the resulting look
+- [ ] add a feedback and contributing section to the readme.
